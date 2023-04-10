@@ -1,0 +1,12 @@
+# Ignore .idea junk
+.idea
+
+# Ignore cmake junk
+cmake-build-debug
+
+# Ignore binary
+main
+
+# Ignore annoying swap and bmp files
+*.swp
+*.bmp

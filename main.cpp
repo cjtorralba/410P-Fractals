@@ -64,8 +64,16 @@ void drawLineWithDots(double* pointOne, double* pointTwo, int numPoints) {
     double yInterval = (pointTwo[1]-pointOne[1]) / numPoints;
 
     for(double i = 0, x = xInterval, y = yInterval; i < numPoints; i++, x += xInterval, y += yInterval) {
+        G_rgb(x * i * y, y * i * numPoints, numPoints);
         G_point(pointOne[0] + (x), pointOne[1] + y);
     }
+}
+
+
+void drawSquareRecursive(double* points, int currentIteration, int maxIterations) {
+    G_rgb(0.0, 1.0, 0.0);
+
+
 }
 
 
@@ -90,10 +98,14 @@ void drawTriangleRecursive(double* points, int currentIteration, int maxIteratio
                                    h1, w1,
                                    h3, w3};
 
-    double triangleTwoPoints[6] = { h1, w1, points[2], points[3], h2, w2 };
+    double triangleTwoPoints[6] = { h1, w1,
+                                    points[2], points[3],
+                                    h2, w2 };
 
 
-    double triangleThreePoints[6] = {h3, w3, h2, w2, points[4], points[5]};
+    double triangleThreePoints[6] = {h3, w3,
+                                     h2, w2,
+                                     points[4], points[5]};
 
     drawTriangleRecursive(triangleOnePoints, currentIteration+1, maxIterations);
     drawTriangleRecursive(triangleTwoPoints, currentIteration+1, maxIterations);
@@ -101,12 +113,6 @@ void drawTriangleRecursive(double* points, int currentIteration, int maxIteratio
 
 
     return;
-    //Drawing bottom left triangle
-
-
-
-
-
 
 }
 
@@ -182,7 +188,7 @@ int main()
 
 //    G_triangle(0.0, 0.0, midPoint[0], midPoint[1], (swidth-1) / 2, 0);
 
-    drawTriangleRecursive(points, 0, 15);
+   // drawTriangleRecursive(points, 0, 15);
 
 //    G_fill_circle(midPoint[0], midPoint[1], 2);
 
@@ -247,29 +253,60 @@ int main()
  */
 
     //===============================================
-    double p[2], q[2] ;
+    double p0[2], p1[2], p2[2], p3[2];
 
     int numPoints = 10;
 
-    double xInterval;
-    double yInterval;
 
     G_rgb(1,0,0) ;
 
-    G_wait_click(p) ;
-    G_fill_circle(p[0],p[1],2);
+    G_wait_click(p0) ;
+    G_fill_circle(p0[0],p0[1],2);
 
-    G_wait_click(q) ;
-    G_fill_circle(q[0],q[1],2) ;
-
-
-
-    drawLineWithDots(p, q, 100);
+    G_wait_click(p1) ;
+    G_fill_circle(p1[0],p1[1],2) ;
 
 
+    double xDiff = p1[0] - p0[0];
+    double yDiff = p1[1] - p0[1];
+
+
+    p2[0] = p0[0] - yDiff;
+    p2[1] = p0[1] + xDiff;
+
+    p3[0] = p1[0] - yDiff;
+    p3[1] = p1[1] + xDiff;
+
+//    drawLineWithDots(p, q, 100);
+
+/*
+    G_line(p0[0], p0[1], p1[0], p1[1] );
+    G_line(p0[0], p0[1], p1[0], p1[1] );
+
+    G_line(p0[0], p0[1], p2[0], p2[1]) ;
+    G_line(p1[0], p1[1], p3[0], p3[1]);
+    G_line(p2[0], p2[1], p3[0], p3[1]);
+    */
+
+
+    drawLineWithDots(p0, p1, 300 );
+    drawLineWithDots(p0, p1, 300 );
+
+    drawLineWithDots(p0, p2, 300) ;
+    drawLineWithDots(p1, p3, 300);
+    drawLineWithDots(p2, p3, 300);
+
+ //   G_line(q[0], q[1], p2[0], p2[1]);
+//    G_line(p1[0], p1[1], q[0] - yDiff, q[1] + xDiff);
+
+    printf("xDiff: %f\nyDiff: %f\n", xDiff, yDiff);
+
+
+    printf("\np0[0]: %f\np0[1]: %f\n", p0[0], p0[1]);
+    printf("\np1[0]: %f\np1[1]: %f\n", p1[0], p1[1]);
+    printf("p2[0]: %f\np2[1]:%f\n", p2[0], p2[1]);
 
     G_rgb(0,1,0.5) ;
-//    G_line(p[0],p[1], q[0],q[1]) ;
 
     G_rgb(1.0, 0, .75);
 

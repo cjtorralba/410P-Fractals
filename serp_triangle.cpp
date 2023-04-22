@@ -7,7 +7,7 @@
 
 /// Header file for serp_triangle
 #include "serp_triangle.h"
-
+#include "FPToolkit/FPToolkit.c"
 
 
 
@@ -49,9 +49,9 @@ void drawSierpinskyTriangleRecursive(double* points, int currentIteration, int m
                                      h2, w2,
                                      points[4], points[5]};
 
-    drawTriangleRecursive(triangleOnePoints, currentIteration+1, maxIterations);
-    drawTriangleRecursive(triangleTwoPoints, currentIteration+1, maxIterations);
-    drawTriangleRecursive(triangleThreePoints, currentIteration+1, maxIterations);
+    drawSierpinskyTriangleRecursive(triangleOnePoints, currentIteration+1, maxIterations);
+    drawSierpinskyTriangleRecursive(triangleTwoPoints, currentIteration+1, maxIterations);
+    drawSierpinskyTriangleRecursive(triangleThreePoints, currentIteration+1, maxIterations);
 }
 
 

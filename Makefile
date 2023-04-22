@@ -3,12 +3,14 @@ CFLAGS= -lm -lX11 -pthread
 DEBUG=-g
 
 MAIN=main.cpp
+SERP=serp_triangle.cpp
 PRACTICE=practice.cpp
 TRIANGLE=serp_triangle.cpp
 EXECUTABLE=main
 
+
 debug: $(MAIN)
-	$(CC) $(MAIN) -o $(EXECUTABLE) $(CFLAGS) $(DEBUG)
+	$(CC) $(MAIN) $(SERP) -o $(EXECUTABLE) $(CFLAGS) $(DEBUG)
 
 
 all: $(MAIN)

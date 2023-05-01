@@ -14,7 +14,7 @@ debug: $(MAIN)
 
 
 all: $(MAIN)
-	$(CC) $(MAIN) -o $(EXECUTABLE) $(CFLAGS)
+	$(CC) $(MAIN) -o $(EXECUTABLE) $(CFLAGS) $(DEBUG)
 
 clean:
 	rm $(EXECUTABLE) *.bmp

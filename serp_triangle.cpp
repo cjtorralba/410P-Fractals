@@ -7,7 +7,6 @@
 
 /// Header file for serp_triangle
 #include "serp_triangle.h"
-#include "FPToolkit/FPToolkit.c"
 
 
 

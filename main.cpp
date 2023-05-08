@@ -62,11 +62,12 @@ void drawSquareAtAngle(double p1[], double p2[]);
 
 
 /**
+ * Draws a line of a specified length at a specified angle, in degrees.
  *
  * @param points The starting point in which we will draw the line from
- * @param lineLength
- * @param angle
- * @param increment
+ * @param lineLength The length of the line being drawn
+ * @param angle Angle at which we wish to draw from, in degrees. It will be converted to radians in this function.
+ * @param increment true if you wish to move the points to the location of the newly drawn line.
  */
 void drawLineAtAngle(double* points, double lineLength, double angle, bool increment) {
     double radians = DEGREE_TO_RAD(angle);
@@ -83,6 +84,51 @@ void drawLineAtAngle(double* points, double lineLength, double angle, bool incre
         points[1] += yLength;
     }
 }
+
+
+
+
+
+void stringBuilder(char* source, int depth) {
+
+    char temp[1000000] = {'\0'};
+
+
+   for(int i = 0; i < depth; ++i) {
+       for( int j = 0; j < strlen(source) ; ++j) {
+           switch (source[j]) {
+
+               case 'A':
+                   strcat(temp, "+A-C-A+");
+                   break;
+
+               case 'B':
+                   strcat(temp, "B+C+B");
+                   break;
+
+               case 'C':
+                   strcat(temp, "A-C-A");
+                   break;
+
+               case '+':
+                   strcat(temp, "+");
+                   break;
+               case '-':
+                   strcat(temp, "-");
+                   break;
+
+               default:
+                   break;
+           }
+       }
+           strcpy(source, temp);
+           memset(temp, '\0', sizeof(temp));
+   }
+
+}
+
+
+
 
 
 
@@ -169,12 +215,17 @@ void drawPythagTree(double p0[], double p1[], int currentLevel, int depth) {
 
 
     //drawPythagTree(p2, p3, currentLevel+1, depth);
-
 }
 
 
 
+void autoPlacer(char* string, double screenHeight, double screenWidth) {
 
+
+
+
+
+}
 
 
 
@@ -311,15 +362,20 @@ int main() {
     double p1[2] = {400.0, 400.0};
 
 
-    char s[1000000];
+    char s[1000000] = {'B', '\0'};
 
-    scanf("%s", s);
-    int length = strlen(s);
+   // scanf("%s", s);
+   // int length = strlen(s);
 
-    printf("Length: %d", length);
+    //printf("Length: %d", length);
+
+
+
+
+    stringBuilder( s, 10);
 
     drawWithGrammar(s);
-    drawWithGrammar(s);
+    //drawWithGrammar(s);
 
     //  drawKoch(p1, 100.0, 0, 0, 5);
 

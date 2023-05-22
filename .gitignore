@@ -4,9 +4,14 @@
 # Ignore cmake junk
 cmake-build-debug
 
-# Ignore binary
-main
+# Ignore binary files for each directory
+Class_Work/main
+3D_Stuff/wire_frame
+IFS_Initials/initials
+Menger_Sponge/sponge
+
 
 # Ignore annoying swap and bmp files
 *.swp
 *.bmp
+

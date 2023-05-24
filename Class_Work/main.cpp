@@ -141,95 +141,128 @@ void IFS_Pentagon(int iterations) {
 }
 
 
+
+
+
 void IFS_initials(int iterations) {
 
     for (int i = 0; i < iterations; ++i) {
+
         double random = drand48();
-        if (random < (double) 1 / 5) { // Top Right C
-            G_rgb(1.0, 0.0, 0.0);
+        if (random < (double) 1 / 8) { // Rule 1
+            G_rgb(random * 255, 0.0, 0.0); // RED
 
-            translate((double) 2 / 8, (double) 1 / 5);
-
-            G_point(WIDTH * points[0], HEIGHT * points[1]);
-
-        } else if (random > (double) 1 / 5 && random < (double) 2 / 5) { // Middle top C
-            G_rgb(0.0, 1.0, 0.0);
-
-            translate((double) 2 / 8, (double) 3 / 5);
-
-            G_point(WIDTH * points[0], HEIGHT * points[1]);
-        } else if (random > (double) 2 / 5 && random < (double) 3 / 5) { // Middle left C
-            G_rgb(0.0, 0.0, 1.0);
-
-            translate((double) 1 / 8, (double) 3 / 5);
+            translate((double) 3 / 4, (double) 4 / 5);
 
             G_point(WIDTH * points[0], HEIGHT * points[1]);
 
-        } else if (random > (double) 3 / 5 && random < (double) 4 / 5) {
+        } else if (random > (double) 1 / 8 && random < (double) 2 / 8) { // Rule 2
+            G_rgb(0.0, 1.0, 0.0); // GREEN
+
+            translate((double) 2 / 4, (double) 4 / 5);
+
+            G_point(WIDTH * points[0], HEIGHT * points[1]);
+        } else if (random > (double) 2 / 8 && random < (double) 3 / 8) { // Rule 3
+            G_rgb(0.0, 0.0, 1.0); // BLUE
+
+            translate((double) 1 / 4, (double) 4 / 5);
+
+            G_point(WIDTH * points[0], HEIGHT * points[1]);
+
+        } else if (random > (double) 3 / 8 && random < (double) 4 / 8) { // Rule 4
             G_rgb(.3, .7, .3);
 
-            translate((double) 1 / 8, (double) 2 / 5);
+            translate((double) 1 / 4, (double) 3 / 5);
 
             G_point(WIDTH * points[0], HEIGHT * points[1]);
-        } else {
-            G_rgb(.3, .7, .3);
+        } else if (random > (double) 4 / 8 && random < (double) 5 / 8) { // Rule 5
+            G_rgb(.7, .3, .1);
 
-            translate((double) 1 / 8, (double) 1 / 5);
+            translate((double) 1 / 4, (double) 2 / 5);
 
             G_point(WIDTH * points[0], HEIGHT * points[1]);
+        } else if (random > (double) 5 / 8 && random < (double) 6 / 8) { // Rule 6
+            G_rgb(.5, .9, .1);
+
+            translate((double) 1 / 4, (double) 1 / 5);
+
+            G_point(WIDTH * points[0], HEIGHT * points[1]);
+
+
+        } else if (random > (double) 6 / 8 && random < (double) 7 / 8) { // Rule 7
+            G_rgb(.3, .7, .220);
+
+            translate((double) 2 / 4, (double) 1 / 5);
+
+            G_point(WIDTH * points[0], HEIGHT * points[1]);
+
+        } else { // Rule 8
+            G_rgb(.7, .3, .7);
+
+            translate((double) 3 / 4, (double) 1 / 5);
+
+            G_point(WIDTH * points[0], HEIGHT * points[1]);
+
         }
-
         /*
-        if (random < (double) 1 / 7) { // Top Right C
-            G_rgb(1.0, 0.0, 0.0);
+        if (random < (double) 1 / 8) { // Rule 1
+            G_rgb(random * 255, 0.0, 0.0); // RED
 
-            translate((double) 3 / 8, (double) 3 / 5);
-
-            G_point(WIDTH * points[0], HEIGHT * points[1]);
-
-        } else if (random > (double) 1 / 7 && random < (double) 2 / 7) { // Middle top C
-            G_rgb(0.0, 1.0, 0.0);
-
-            translate((double) 2 / 8, (double) 3 / 5);
-
-            G_point(WIDTH * points[0], HEIGHT * points[1]);
-        } else if (random > (double) 2 / 7 && random < (double) 3 / 7) { // Middle left C
-            G_rgb(0.0, 0.0, 1.0);
-
-            translate((double) 1 / 8, (double) 3 / 5);
+            translate((double) 3 / 3, (double) 4 / 4);
 
             G_point(WIDTH * points[0], HEIGHT * points[1]);
 
-        } else if (random > (double) 3 / 7 && random < (double) 4 / 7) {
+        } else if (random > (double) 1 / 8 && random < (double) 2 / 8) { // Rule 2
+            G_rgb(0.0, 1.0, 0.0); // GREEN
+
+            translate((double) 2 / 3, (double) 4 / 4);
+
+            G_point(WIDTH * points[0], HEIGHT * points[1]);
+        } else if (random > (double) 2 / 8 && random < (double) 3 / 8) { // Rule 3
+            G_rgb(0.0, 0.0, 1.0); // BLUE
+
+            translate((double) 1 / 3, (double) 4 / 4);
+
+            G_point(WIDTH * points[0], HEIGHT * points[1]);
+
+        } else if (random > (double) 3 / 8 && random < (double) 4 / 8) { // Rule 4
             G_rgb(.3, .7, .3);
 
-            translate((double) 1 / 8, (double) 2 / 5);
+            translate((double) 1 / 3, (double) 3 / 4);
 
             G_point(WIDTH * points[0], HEIGHT * points[1]);
-        } else if (random > (double) 4 / 7 && random < (double) 5 / 7) {
+        } else if (random > (double) 4 / 8 && random < (double) 5 / 8) { // Rule 5
             G_rgb(.3, .7, .3);
 
-            translate((double) 1 / 8, (double) 1 / 5);
+            translate((double) 1 / 3, (double) 2 / 4);
 
             G_point(WIDTH * points[0], HEIGHT * points[1]);
-        } else if (random > (double) 5 / 7 && random < (double) 6 / 7) {
-            G_rgb(.3, .7, .3);
+        } else if (random > (double) 5 / 8 && random < (double) 6 / 8) { // Rule 6
+            G_rgb(.5, .9, .1);
 
-            translate((double) 2 / 8, (double) 1 / 5);
-
-            G_point(WIDTH * points[0], HEIGHT * points[1]);
-        } else {
-            G_rgb(.3, .7, .3);
-
-            translate((double) 23/ 8, (double) 1 / 5);
+            translate((double) 1 / 3, (double) 1 / 4);
 
             G_point(WIDTH * points[0], HEIGHT * points[1]);
+
+
+        } else if (random > (double) 6 / 8 && random < (double) 7 / 8) { // Rule 7
+            G_rgb(.3, .7, .220);
+
+            translate((double) 2 / 3, (double) 1 / 4);
+
+            G_point(WIDTH * points[0], HEIGHT * points[1]);
+
+        } else { // Rule 8
+            G_rgb(.7, .3, .7);
+
+            translate((double) 3 / 3, (double) 1 / 4);
+
+            G_point(WIDTH * points[0], HEIGHT * points[1]);
+
         }
          */
 
-        scale((double) 1 / 4, (double) 1 / 4);
-
-
+        scale((double) 1 / 3, (double) 1 / 5);
     }
 
 
@@ -643,7 +676,7 @@ int main() {
     // IFS_Pentagon(1000000);
     //IFS_initials(1000000);
 
-    IFS_initials(1000000);
+    IFS_initials(10000000);
 
 
     //  drawKoch(p1, 100.0, 0, 0, 5);

@@ -620,6 +620,22 @@ void drawLineWithDots(double *pointOne, double *pointTwo, int numPoints) {
 }
 
 
+void drawTriangleIteratively(double* points, int iterations) {
+
+    for(int i = 0; i < iterations; ++i) {
+
+
+    }
+
+
+
+}
+
+
+
+
+
+
 int main() {
     int swidth, sheight;
     double lowleftx, lowlefty, width, height;
@@ -676,7 +692,7 @@ int main() {
     // IFS_Pentagon(1000000);
     //IFS_initials(1000000);
 
-    IFS_initials(10000000);
+   // IFS_initials(10000000);
 
 
     //  drawKoch(p1, 100.0, 0, 0, 5);

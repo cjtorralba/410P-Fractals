@@ -1,14 +1,10 @@
-/**
- * Implementation of the drawSierpinskyTrangleRecursive function
- * @author Christian Torralba
- * @version 1.0
- * @since 1.0
- */
+//
+// Created by cjtorralba on 5/26/23.
+//
+#include "../FPToolkit/FPToolkit.c"
 
-/// Header file for serp_triangle
-#include "serp_triangle.h"
-
-
+#define WIDTH 800.0
+#define HEIGHT 800.0
 
 /**
  * This is a functions that creates a Sierpinsky Triangle fractal recursively. By first drawing a triangle, then halving the lenghts of the sides
@@ -46,3 +42,36 @@ void drawSierpinskyTriangleRecursive(double* points, int currentIteration, int m
     drawSierpinskyTriangleRecursive(triangleThreePoints, currentIteration+1, maxIterations);
 }
 
+
+
+
+int main(int argc, char** argv) {
+
+
+
+    int swidth, sheight;
+
+
+    // must do this before you do 'almost' any other graphical tasks
+    swidth = WIDTH;
+    sheight = HEIGHT;
+    G_init_graphics(swidth, sheight);  // interactive graphics
+
+    G_rgb(0.3, 0.3, 0.3); // dark gray
+    G_clear();
+
+    double pointsList[6] = {0.0, 0.0, (swidth - 1.0) / 2, sheight - 1.0, swidth - 1.0, 0.0};
+    double p1[2] = {400.0, 400.0};
+
+//    drawSierpinskyTriangleRecursive(pointsList, 0, 10);
+    drawSierpinskiTriangleIterative(pointsList, 20);
+
+
+    int key;
+    key = G_wait_key(); // pause so user can see results
+
+    //   G_save_image_to_file("demo.xwd") ;
+    G_save_to_bmp_file("Demo.bmp");
+
+
+}
